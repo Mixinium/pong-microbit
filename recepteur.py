@@ -1,5 +1,5 @@
 from microbit import *
-import radio
+import radio, time
 
 uart.init(baudrate=115200)
 msg_bytes = uart.read()
@@ -12,40 +12,38 @@ test = 0
 mouv=0
 display.scroll('Pret')
 
+
 while True:
-    msg_bytes = uart.read()
     msg_str = str(msg_bytes)
     incomming = radio.receive()
+    choix = 0
 
 
     if incomming == 'a':
-        display.scroll('Recu')
-        msg_bytes = uart.read()
-        if msg_bytes == b'mouvement':
-
-            print('1')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    if incomming == 'a':
-        test+=1
-        display.show(test)
-        print(msg_str)
+        print("1")
+        display.show('1')
     if incomming == 'b':
-        test-=1
-        display.show(test)
-        print(msg_str)
+        print("2")
+        display.show('2')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

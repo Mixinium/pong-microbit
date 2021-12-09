@@ -2,6 +2,7 @@ import turtle
 import time
 import keyboard
 import random
+import serial
 
 
 # L'écran méga ouf de la mort qui tue
@@ -81,17 +82,23 @@ if random.randint(1, 25) == 0:
         xe -= 60
         raquette_droite.setx(xe)
 
+port = "COM7"
+baud = 115200
+s = serial.Serial(port)
+s.baudrate = baud
+
 while True:
+    
 
     
 
 
 #commandes
-    if keyboard.is_pressed('z'):
+    if data==1:
         y = raquette_gauche.ycor()
         y += 15
         raquette_gauche.sety(y)
-    if keyboard.is_pressed('s'):
+    if data==2:
         y = raquette_gauche.ycor()
         y -= 15
         raquette_gauche.sety(y)
@@ -103,6 +110,8 @@ while True:
         x = raquette_gauche.xcor()
         x -= 15
         raquette_gauche.setx(x)
+    data = s.readline()  
+    data = int(data[0:4])
 
     if raquette_droite.ycor() <= balle.ycor()  and balle.xcor() >= 100:
         ye = raquette_droite.ycor()
