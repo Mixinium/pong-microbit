@@ -82,10 +82,6 @@ if random.randint(1, 25) == 0:
         xe -= 60
         raquette_droite.setx(xe)
 
-port = "COM7"
-baud = 115200
-s = serial.Serial(port)
-s.baudrate = baud
 
 while True:
     
@@ -94,11 +90,12 @@ while True:
 
 
 #commandes
-    if data==1:
+    
+    if keyboard.is_pressed('z'):
         y = raquette_gauche.ycor()
         y += 15
         raquette_gauche.sety(y)
-    if data==2:
+    if keyboard.is_pressed('s'):
         y = raquette_gauche.ycor()
         y -= 15
         raquette_gauche.sety(y)
@@ -110,16 +107,15 @@ while True:
         x = raquette_gauche.xcor()
         x -= 15
         raquette_gauche.setx(x)
-    data = s.readline()  
-    data = int(data[0:4])
+    
 
-    if raquette_droite.ycor() <= balle.ycor()  and balle.xcor() >= 100:
+    if raquette_droite.ycor() <= balle.ycor()  :
         ye = raquette_droite.ycor()
-        ye += 15
+        ye = balle.ycor()
         raquette_droite.sety(ye)
-    if raquette_droite.ycor() >= balle.ycor()  and balle.xcor() >= 100:
+    if raquette_droite.ycor() >= balle.ycor()  :
         ye = raquette_droite.ycor()
-        ye -= 15
+        ye = balle.ycor()
         raquette_droite.sety(ye)
     if keyboard.is_pressed('right'):
         xe = raquette_droite.xcor()
@@ -215,7 +211,7 @@ while True:
         balle.dx *= -1
 
 
-    if keyboard.is_pressed('esc'):
+    if keyboard.is_pressed('l') or keyboard.is_pressed('esc'):
         exit()
 
 

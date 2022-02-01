@@ -50,7 +50,7 @@ if bonusa == "Oui":
 
 reponse = ccbox("Voulez vous continuer ?", "Mon application")
 if reponse == 1 and tp == 0 and bonnus == 0:
-
+    vitesse1 = vitesse
     pygame.init()
     width = 1000
     height = 600
@@ -192,14 +192,18 @@ if reponse == 1 and tp == 0 and bonnus == 0:
                 game_on=False
             if key_input[pygame.K_l]:
              game_on=False
+        
         if key_input[pygame.K_z]:
             haut1(vitesse)
         if key_input[pygame.K_s]:
             bas1(vitesse)
-        if key_input[pygame.K_UP]:
-            haut2(vitesse)
-        if key_input[pygame.K_DOWN]:
-            bas2(vitesse)
+        if joueur_2_Y_dif <= balle_Y-240:
+            if joueur_2_Y_dif+6 <= joueur_2_Y_default-10:
+                joueur_2_Y_dif += 6
+        if joueur_2_Y_dif >= balle_Y-220 :
+            if joueur_2_Y_dif-6 <= joueur_2_Y_default+10:
+                joueur_2_Y_dif -= 6
+        
         
 
         

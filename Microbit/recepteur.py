@@ -19,14 +19,18 @@ while True:
     choix = 0
 
 
-    if incomming == 'a':
+    if incomming == '1':
         print("1")
         display.show('1')
-    if incomming == 'b':
+    if incomming == '2':
         print("2")
         display.show('2')
-
-
+    if incomming == '3':
+        print("3")
+        display.show('3')
+    if incomming == '4':
+        print("4")
+        display.show('4')
 
 
 
