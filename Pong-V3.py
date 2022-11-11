@@ -1,6 +1,6 @@
 import sys, pygame, random, serial, time
 from easygui import *
-import keyboard
+
 
 bonnus = 0
 
@@ -98,7 +98,7 @@ if reponse == 1 and tp == 0:
         canvas.blit(label1, (70, 20))
 
         myfont2 = pygame.font.SysFont("Comic Sans MS", 20)
-        label2 = myfont2.render(str(score_2), 1, (255, 255, 226))
+        label2 = myfont2.render(str(score_2), 1, (255, 255, 226)) 
         canvas.blit(label2, (900, 20))
 
 #============================================================================================================================================
